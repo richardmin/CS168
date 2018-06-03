@@ -132,7 +132,7 @@ else:
 paths = {}
 
 for scan_id, raw_scan_id in labelled_scan_ids:
-    raw_scan_id = "../files/" + raw_scan_id
+    raw_scan_id = location + "/" + raw_scan_id
     scans = [x for x in os.listdir(raw_scan_id) if mri_extractor_pattern.match(x)]
     scanLocations = []
     for scan in scans:
