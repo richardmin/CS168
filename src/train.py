@@ -119,8 +119,30 @@ for raw_scan_id in raw_scan_ids:
         continue
     elif patient_id_to_results[scan_id] is Dementia.UNKNOWN:
         continue
-    labelled_scan_ids.append(raw_scan_id)
+    labelled_scan_ids.append((scan_id, raw_scan_id))
 
 FLAG = "T1w" #or T2w
 mri_extractor_pattern = re.compile('anat[0-9]*')
-mri_type_pattern = re.compile(FLAG)
+
+if FLAG is "T1w":
+    mri_type_pattern = re.compile(".*T1w.nii.gz")
+else:
+    mri_type_pattern = re.compile(".*T2w.nii.gz")
+
+paths = {}
+
+for scan_id, raw_scan_id in labelled_scan_ids:
+    raw_scan_id = "../files/" + raw_scan_id
+    scans = [x for x in os.listdir(raw_scan_id) if mri_extractor_pattern.match(x)]
+    scanLocations = []
+    for scan in scans:
+        scan_folder = raw_scan_id + "/" + scan
+        scanTypeMatch = [x for x in os.listdir(scan_folder) if mri_type_pattern.match(x)]
+        if scanTypeMatch:
+            scanLocations.append(scan_folder + "/" + scanTypeMatch[0])
+    if scan_id not in paths:
+        paths[scan_id] = []
+    paths[scan_id].append(scanLocations)
+    
+
+print(paths)
