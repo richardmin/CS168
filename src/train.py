@@ -9,4 +9,8 @@ from nilearn import plotting
 config = configparser.ConfigParser()
 config.read('../config.ini')
 location = config['FILES']['Location']
-print(location)
+
+# find all the files in the folder
+raw_scan_ids = [x for x in os.listdir(location)]
+
+if '.DS_Store' in raw_scan_ids: raw_scan_ids.remove('.DS_Store')
