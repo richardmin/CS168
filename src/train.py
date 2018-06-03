@@ -121,4 +121,6 @@ for raw_scan_id in raw_scan_ids:
         continue
     labelled_scan_ids.append(raw_scan_id)
 
-print(labelled_scan_ids)
+FLAG = "T1w" #or T2w
+mri_extractor_pattern = re.compile('anat[0-9]*')
+mri_type_pattern = re.compile(FLAG)
