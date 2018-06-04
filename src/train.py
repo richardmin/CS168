@@ -146,17 +146,14 @@ for scan_id, raw_scan_id in labelled_scan_ids:
     if scan_id not in paths:
         paths[scan_id] = []
     paths[scan_id].append(scanLocations)
-<<<<<<< HEAD
 print(paths)
     
 # so the paths are ordered in a list like array, and idea is to take each index of list or
 # each file and feed .nii file to sci kit learn somehow. 
 
 
-=======
 
 for personId, MRISession in paths.items():
     for MRI in sorted(MRISession):
         # do stuff
         pass
->>>>>>> bugfixes
