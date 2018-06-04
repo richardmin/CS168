@@ -154,6 +154,8 @@ print(paths)
 
 
 for personId, MRISession in paths.items():
+    print('asdf')
     for MRI in sorted(MRISession):
-        # do stuff
+        for scan in sorted(MRI):
+            print(scan)
         pass
