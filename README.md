@@ -29,22 +29,37 @@ Then install nilearn by running:
 pip install -U --user nilearn
 
 ```
-Then open IPython or choice of VirtualEnv or Jupyter Notebook etc (to quit Ipython just type exit in command prompt window)
+Then open IPython or choice of VirtualEnv or Jupyter Notebook etc (to quit Ipython just type exit in command prompt window) If you choose to use anaconda for example, you would run pythonw train.py instead of python3 train.py
 
-End with an example of getting some data out of the system or using it for a little demo
+
+Other note: May need to update conda by typing conda update conda if applicable.
 
 ## Running the tests
 
 Explain how to run the automated tests for this system
 
+
 ### Break down into end to end tests
 
-Explain what these tests test and why
+Run the below to execute script if using anaconda
 
 ```
-Give an example
-```
+pythonw train.py
 
+```
+If want to plot an image, below is an example:
+
+```
+%matplotlib inline
+
+from nilearn import image
+
+
+plotting.plot_img("../files/OAS30001_MR_d0129/anat4/test.nii")
+plotting.plot_glass_brain("../files/OAS30001_MR_d0129/anat4/test.nii")  
+
+
+```
 
 ## Built With
 
@@ -52,7 +67,11 @@ Give an example
 * 
 * 
 
-## Contributing
+## Sources
+
+https://docs.python.org/3/installing/index.html
+
+https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
 
 ## License
 
