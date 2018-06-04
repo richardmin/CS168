@@ -136,19 +136,27 @@ paths = {}
 
 for scan_id, raw_scan_id in labelled_scan_ids:
     raw_scan_id = location + "/" + raw_scan_id
-    scans = [x for x in os.listdir(raw_scan_id) if mri_extractor_pattern.match(x)]
+    scans = [x for x in sorted(os.listdir(raw_scan_id)) if mri_extractor_pattern.match(x)]
     scanLocations = []
     for scan in scans:
         scan_folder = raw_scan_id + "/" + scan
-        scanTypeMatch = [x for x in os.listdir(scan_folder) if mri_type_pattern.match(x)]
+        scanTypeMatch = [x for x in sorted(os.listdir(scan_folder)) if mri_type_pattern.match(x)]
         if scanTypeMatch:
             scanLocations.append(scan_folder + "/" + scanTypeMatch[0])
     if scan_id not in paths:
         paths[scan_id] = []
     paths[scan_id].append(scanLocations)
+<<<<<<< HEAD
 print(paths)
     
 # so the paths are ordered in a list like array, and idea is to take each index of list or
 # each file and feed .nii file to sci kit learn somehow. 
 
 
+=======
+
+for personId, MRISession in paths.items():
+    for MRI in sorted(MRISession):
+        # do stuff
+        pass
+>>>>>>> bugfixes
