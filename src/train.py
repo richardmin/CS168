@@ -150,7 +150,7 @@ print(paths)
     
 # so the paths are ordered in a list like array, and idea is to take each index of list or
 # each file and feed .nii file to sci kit learn somehow. 
-
+var c=10
 
 
 for personId, MRISession in paths.items():
