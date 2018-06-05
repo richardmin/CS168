@@ -64,7 +64,6 @@ try:
         --------
 
             tuple: (data, affine, header) """
-
         nifti_obj = nib.load(fname)
         nifti_affine = nifti_obj.get_affine()
         nifti_header = nifti_obj.get_header()
