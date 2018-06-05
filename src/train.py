@@ -146,16 +146,17 @@ for scan_id, raw_scan_id in labelled_scan_ids:
     if scan_id not in paths:
         paths[scan_id] = []
     paths[scan_id].append(scanLocations)
-print(paths)
+# print(paths)
     
 # so the paths are ordered in a list like array, and idea is to take each index of list or
 # each file and feed .nii file to sci kit learn somehow. 
 
 
+path_string = ""
 
 for personId, MRISession in paths.items():
-    print('asdf')
     for MRI in sorted(MRISession):
-        for scan in sorted(MRI):
-            print(scan)
-        pass
+        path_string = path_string + str(sorted(MRI)[0]) + " "
+        
+
+print(path_string)
