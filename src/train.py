@@ -47,11 +47,13 @@ DementiaStrings = ["AD dem/FLD prior to AD dem",
                     "AD Dementia", 
                     "AD dem w/PDI after AD dem contribut", 
                     "AD dem w/oth unusual feat/subs demt", 
-                    "Vascular Demt- primary"]
+                    "Vascular Demt- primary",
+                    "Dementia"]
 NoDementiaStrings = ["ProAph w/o dement", 
                         "Non AD dem- Other primary", 
                         "Cognitively normal", 
-                        "No dementia"]
+                        "No dementia",
+                        "NoDementia"]
 class Dementia(Enum):
     DEMENTIA = "Dementia"
     NO_DEMENTIA = "No_Dementia"
@@ -63,11 +65,12 @@ class Dementia(Enum):
             return Dementia.DEMENTIA
         elif string in NoDementiaStrings:
             return Dementia.NO_DEMENTIA
+        print(string)
         return Dementia.UNKNOWN
 
 
 patient_results = {}
-with open('../patient_diagnosis.csv') as csvfile:
+with open('../patient_diagnosis_processed.csv') as csvfile:
     reader = csv.reader(csvfile)
     headers = next(reader)
     for row in reader:
@@ -150,7 +153,7 @@ for scan_id, raw_scan_id in labelled_scan_ids:
     
 # so the paths are ordered in a list like array, and idea is to take each index of list or
 # each file and feed .nii file to sci kit learn somehow. 
-
+# var c=10
 
 path_string = ""
 
