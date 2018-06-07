@@ -1,78 +1,49 @@
+# CS168 Final Project: Evaluating Different Classifiers performance on Categorizing Dementia of MRI Brain Images
+
+Diagnosing Dementia and Classifying Stages of Dementia using SciKit's AdaBoost-SAMME, Decision Trees, Gausian Process Classification, K-Neighbors, Multi-Layer Perceptron, Random Forest, and Linear Support Vector Classification on medical MRI scans of patient's brains. Data was provided by [OASIS Cross-Sectional](https://www.oasis-brains.org).
+
+The objective of the project is to identify the effectiveness of different classifiers at identifying if a brain MRI depicts someone with dementia or not. We use nibabel to handle the loading of the images as well as handle the preprocessing. Then, we use SciKit to create a classifier pipeline, applying a variance threshold, removing low variance features, and using ANOVA to select the best features from the images, before running our classifier on the extracted features. 
 
 
 
-# CS168 Final Project: Evaluating/Using a CNN and LSTM Model's performance on Diagnosing and categorizing different stages of Dementia.
+## Prerequisites
 
-Diagnosing Dementia and Classifying Stages of Dementia using CNN and LSTM on .nii medical images. The objective is to create and properly train and test on a huge dataset of medical images of patients, given a lot of data, figure out which data may be relevant to improving our predictions and classification of the patient's stages of Dementia. We will be using (some amount) of images as our test data, and (some amount) of images as our train data. The objective is to first train from a big set of data with the model proposed above, and then evaluate the performance of the model on a big set of test data. The readme should also consist of how to open these .nii files and how we are setting up the training and testing for the datasets.
+Python3
 
-
-
-### Prerequisites
-
-Python and Anaconda/Jupyter Notebook (as already done from the first 2 homework assignments)
+## Installing
 
 
-### Installing
-
-
-
-First step is to open terminal and run:
+Install required dependencies:
 
 ```
-pip install nibabel
+$ pip install nilearn matplotlib jupyter sklearn
 ```
 
-Then install nilearn by running:
-
-
-```
-pip install -U --user nilearn
+Launch appropriate notebook:
 
 ```
-Then open IPython or choice of VirtualEnv or Jupyter Notebook etc (to quit Ipython just type exit in command prompt window) If you choose to use anaconda for example, you would run pythonw train.py instead of python3 train.py
-
-
-Other note: May need to update conda by typing conda update conda if applicable.
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-
-### Break down into end to end tests
-
-Run the below to execute script if using anaconda
-
+$ jupyter notebook <notebook name>
 ```
-pythonw train.py
+For example, if you want to launch the SVC notebook, you would run:
 
+``` 
+$ jupyter notebook src/variance_anova_svc.ipynb 
 ```
+
+## Plotting Images
+
 If want to plot an image, below is an example:
-
 ```
 %matplotlib inline
 
-from nilearn import image
+from nilearn import plotting
 
-
-plotting.plot_img("../files/OAS30001_MR_d0129/anat4/test.nii")
-plotting.plot_glass_brain("../files/OAS30001_MR_d0129/anat4/test.nii")  
-
+plotting.plot_img("<path_to_file>")
+plotting.plot_glass_brain("<path_to_file>")  
 
 ```
-
-## Built With
-
-* 
-* 
-* 
-
-## Sources
-
-https://docs.python.org/3/installing/index.html
-
-https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
-
+## How to Use
+Simply open a notebook as described in Installing and run Kernal -> Restart All. 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
