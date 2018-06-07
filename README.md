@@ -4,6 +4,7 @@ Diagnosing Dementia and Classifying Stages of Dementia using SciKit's AdaBoost-S
 
 The objective of the project is to identify the effectiveness of different classifiers at identifying if a brain MRI depicts someone with dementia or not. We use nibabel to handle the loading of the images as well as handle the preprocessing. Then, we use SciKit to create a classifier pipeline, applying a variance threshold, removing low variance features, and using ANOVA to select the best features from the images, before running our classifier on the extracted features. 
 
+Code adapted from [this tutorial](https://nilearn.github.io/auto_examples/02_decoding/plot_oasis_vbm.html).
 
 
 ## Prerequisites
